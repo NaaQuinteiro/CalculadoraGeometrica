@@ -17,7 +17,7 @@ public class Cubo {
     }
 
     //Metodo para retornar em String
-    String retornaResumoDoCone(int valor){
+    String retornaResumoDoCubo(int valor){
 
         String resumo = String.format("Resumo Cubo\nLado: %.2f\nÁrea Superfícial: %.2f\nVolume: %.2f",
                 this.lado, this.calcalcularAreaCubo(), this.calcularVolumeCubo());
