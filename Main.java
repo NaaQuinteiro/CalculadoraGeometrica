@@ -1,7 +1,5 @@
-import javax.swing.*;
-import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -17,8 +15,7 @@ public class Main {
 
 
         // parametros figuras espaciais
-        double ladoCubo, comprimentoPa, alturaPa, larguraPa, raioEsfe, arestaBasePir, apotemaPir, alturaPir,
-                raioCili, alturaCone, raioCone, areaBase, alturaCil, raioCil;
+
 
 
         System.out.println("BEM VINDO A CALCULADORA GEOMÉTRICA!" +
@@ -59,7 +56,7 @@ public class Main {
 
                         switch (menuFormas) {
                             //Quadrado
-                            case 1:
+                            case 1 -> {
                                 while (true) {
                                     try {
                                         double ladoQuadrado;
@@ -84,9 +81,10 @@ public class Main {
                                     }
                                 }
                                 continue;
+                            }
 
                             //Retangulo
-                            case 2:
+                            case 2 -> {
                                 while (true) {
                                     try {
                                         double baseRet, alturaRet;
@@ -111,10 +109,10 @@ public class Main {
                                     }
                                 }
                                 continue;
+                            }
 
                             //Triângulo
-                            case 3:
-
+                            case 3 -> {
                                 while (true) {
                                     try {
                                         double ladoTri;
@@ -136,10 +134,11 @@ public class Main {
                                     }
                                 }
                                 continue;
+                            }
 
                             //Circulo
-                            case 4:
-                                while (true){
+                            case 4 -> {
+                                while (true) {
                                     try {
                                         double raioCir;
                                         System.out.println("Insira o valor do raio do círculo:");
@@ -156,16 +155,16 @@ public class Main {
                                         break;
 
 
-                                    }catch (Exception e){
+                                    } catch (Exception e) {
                                         System.out.println("Opção inválida, tente novamente!");
                                     }
                                 }
                                 continue;
+                            }
 
                             //Hexágono
-                            case 5:
-
-                                while (true){
+                            case 5 -> {
+                                while (true) {
                                     try {
                                         double raioHex;
                                         System.out.println("Insira o lado do hexágono:");
@@ -179,14 +178,16 @@ public class Main {
                                             continue;
                                         }
                                         break;
-                                    }catch (Exception e){
+                                    } catch (Exception e) {
                                         System.out.println("Opção inválida, tente novamente!");
                                     }
-                                } continue;
-
-                            default:
+                                }
+                                continue;
+                            }
+                            default -> {
                                 System.out.println("Opção inválida, tente novamente.");
                                 continue;
+                            }
                         }
 
 
@@ -204,7 +205,7 @@ public class Main {
                                         "\n6 - Cone");
                                 menuFormas = Integer.parseInt(ler.nextLine());
 
-                                if (menuFormas <=0 || menuFormas> 5){
+                                if (menuFormas <=0 || menuFormas> 6){
                                     System.out.println("Opção Inválida, tente novamente.");
                                     continue;
                                 }
@@ -215,123 +216,190 @@ public class Main {
                         }
 
                         switch (menuFormas) {
-
                             //Cubo
-                            case 1:
-                                System.out.println("Insira o lado do Cubo:");
-                                ladoCubo = Double.parseDouble(ler.nextLine());
+                            case 1 -> {
+                                while (true) {
+                                    try {
+                                        double ladoCubo;
+                                        System.out.println("Insira o lado do Cubo:");
+                                        ladoCubo = Double.parseDouble(ler.nextLine());
 
-                                if (ladoCubo > 0) {
-                                    Cubo cubo = new Cubo(ladoCubo);
-                                    System.out.println(cubo.retornaResumoDoCubo(valor));
-                                } else {
-                                    System.out.println("Insira um número maior que 0");
+                                        if (ladoCubo > 0) {
+                                            Cubo cubo = new Cubo(ladoCubo);
+                                            System.out.println(cubo.retornaResumoDoCubo(valor));
+
+                                        } else {
+                                            System.out.println("Insira um número maior que 0");
+                                            continue;
+                                        }
+                                        break;
+
+                                    } catch (Exception e) {
+                                        System.out.println("Opção inválida, tente novamente!");
+                                    }
                                 }
-                                break;
+                                continue;
+                            }
+
 
                             //Paralelepípedo
-                            case 2:
-                                System.out.println("Insira a altura do paralelepípedo: ");
-                                alturaPa = Double.parseDouble(ler.nextLine());
+                            case 2 -> {
+                                while (true) {
+                                    try {
+                                        double comprimentoPa, alturaPa, larguraPa;
 
-                                System.out.println("Insira o comprimento do paralelepípedo: ");
-                                comprimentoPa = Double.parseDouble(ler.nextLine());
+                                        System.out.println("Insira a altura do paralelepípedo: ");
+                                        alturaPa = Double.parseDouble(ler.nextLine());
 
-                                System.out.println("Insira a largura do paralelepípedo: ");
-                                larguraPa = Double.parseDouble(ler.nextLine());
+                                        System.out.println("Insira o comprimento do paralelepípedo: ");
+                                        comprimentoPa = Double.parseDouble(ler.nextLine());
 
-                                if (alturaPa > 0 && larguraPa > 0 && comprimentoPa > 0) {
-                                    Paralelepipedo paralelepipedo = new Paralelepipedo(comprimentoPa, alturaPa, larguraPa);
-                                    System.out.println(paralelepipedo.retornaResumoDoParalelepipedo(valor));
-                                } else {
-                                    System.out.println("Insira um número maior que 0");
+                                        System.out.println("Insira a largura do paralelepípedo: ");
+                                        larguraPa = Double.parseDouble(ler.nextLine());
+
+                                        if (alturaPa > 0 && larguraPa > 0 && comprimentoPa > 0) {
+                                            Paralelepipedo paralelepipedo = new Paralelepipedo(comprimentoPa, alturaPa, larguraPa);
+                                            System.out.println(paralelepipedo.retornaResumoDoParalelepipedo(valor));
+
+                                        } else {
+                                            System.out.println("Insira um número maior que 0");
+                                            continue;
+                                        }
+                                        break;
+
+                                    } catch (Exception e) {
+                                        System.out.println("Opção inválida, tente novamente!");
+                                    }
                                 }
-                                break;
+                                continue;
+                            }
 
                             //Esfera
-                            case 3:
-                                System.out.println("Insira o raio da esfera:");
-                                raioEsfe = Double.parseDouble(ler.nextLine());
+                            case 3 -> {
+                                while (true) {
+                                    try {
+                                        double raioEsfe;
+                                        System.out.println("Insira o raio da esfera:");
+                                        raioEsfe = Double.parseDouble(ler.nextLine());
 
-                                if (raioEsfe > 0) {
-                                    Esfera esfera = new Esfera(raioEsfe);
-                                    System.out.println(esfera.retornaResumoDaEsfera(valor));
-                                } else {
-                                    System.out.println("Insira um número maior que 0");
+                                        if (raioEsfe > 0) {
+                                            Esfera esfera = new Esfera(raioEsfe);
+                                            System.out.println(esfera.retornaResumoDaEsfera(valor));
+                                        } else {
+                                            System.out.println("Insira um número maior que 0");
+                                            continue;
+                                        }
+                                        break;
+                                    } catch (Exception e) {
+                                        System.out.println("Opção inválida, tente novamente!");
+                                    }
                                 }
-                                break;
+                                continue;
+                            }
 
                             //Piramide
-                            case 4:
+                            case 4 -> {
+                                while (true) {
+                                    try {
+                                        double arestaBasePir, apotemaPir, alturaPir, areaBase;
 
-                                System.out.println("Insira a aresta da base da Pirâmide: ");
-                                arestaBasePir = Double.parseDouble(ler.nextLine());
+                                        System.out.println("Insira a aresta da base da Pirâmide: ");
+                                        arestaBasePir = Double.parseDouble(ler.nextLine());
 
-                                System.out.println("Insira a apótema da Pirâmide: ");
-                                apotemaPir = Double.parseDouble(ler.nextLine());
+                                        System.out.println("Insira a apótema da Pirâmide: ");
+                                        apotemaPir = Double.parseDouble(ler.nextLine());
 
-                                System.out.println("Insira a Altura da Pirâmide: ");
-                                alturaPir = Double.parseDouble(ler.nextLine());
+                                        System.out.println("Insira a Altura da Pirâmide: ");
+                                        alturaPir = Double.parseDouble(ler.nextLine());
 
-                                System.out.println("Insira a área da base da Pirâmide: ");
-                                areaBase = Double.parseDouble(ler.nextLine());
+                                        System.out.println("Insira a área da base da Pirâmide: ");
+                                        areaBase = Double.parseDouble(ler.nextLine());
 
-                                if (arestaBasePir > 0 && apotemaPir > 0 && areaBase > 0) {
-                                    PiramideBaseQuadrada piramide = new PiramideBaseQuadrada(arestaBasePir, apotemaPir,
-                                            alturaPir, areaBase);
-                                    System.out.println(piramide.retornaResumoDaPiramide(valor));
-                                } else {
-                                    System.out.println("Insira um número maior que 0");
+                                        if (arestaBasePir > 0 && apotemaPir > 0 && areaBase > 0) {
+                                            PiramideBaseQuadrada piramide = new PiramideBaseQuadrada(arestaBasePir, apotemaPir,
+                                                    alturaPir, areaBase);
+                                            System.out.println(piramide.retornaResumoDaPiramide(valor));
+
+                                        } else {
+                                            System.out.println("Insira um número maior que 0");
+                                            continue;
+                                        }
+                                        break;
+                                    } catch (Exception e) {
+                                        System.out.println("Opção inválida, tente novamente!");
+                                    }
                                 }
-                                break;
+                                continue;
+                            }
 
                             //Cilindro
-                            case 5:
-                                System.out.println("Insira a altura do Cilíndro: ");
-                                alturaCil = Double.parseDouble(ler.nextLine());
+                            case 5 -> {
+                                while (true) {
+                                    try {
+                                        double raioCili, alturaCil;
+                                        System.out.println("Insira a altura do Cilíndro: ");
+                                        alturaCil = Double.parseDouble(ler.nextLine());
 
-                                System.out.println("Insira o raio do Cilíndro: ");
-                                raioCili = Double.parseDouble(ler.nextLine());
+                                        System.out.println("Insira o raio do Cilíndro: ");
+                                        raioCili = Double.parseDouble(ler.nextLine());
 
-                                if (alturaCil > 0 && raioCili > 0) {
-                                    Cilindro cilindro = new Cilindro(alturaCil, raioCili);
-                                    System.out.println(cilindro.retornaResumoDoCilindro(valor));
-                                } else {
-                                    System.out.println("Insira um número maior que 0");
+                                        if (alturaCil > 0 && raioCili > 0) {
+                                            Cilindro cilindro = new Cilindro(alturaCil, raioCili);
+                                            System.out.println(cilindro.retornaResumoDoCilindro(valor));
+                                        } else {
+                                            System.out.println("Insira um número maior que 0");
+                                            continue;
+                                        }
+                                        break;
+
+                                    } catch (Exception e) {
+                                        System.out.println("Opção inválida, tente novamente!");
+                                    }
                                 }
-                                break;
+                                continue;
+                            }
 
                             //Cone
-                            case 6:
-                                System.out.println("Insira a altura do Cilíndro: ");
-                                alturaCone = Double.parseDouble(ler.nextLine());
+                            case 6 -> {
+                                while (true) {
+                                    try {
+                                        double alturaCone, raioCone;
+                                        System.out.println("Insira a altura do Cilíndro: ");
+                                        alturaCone = Double.parseDouble(ler.nextLine());
 
-                                System.out.println("Insira a altura do Cilíndro: ");
-                                raioCone = Double.parseDouble(ler.nextLine());
+                                        System.out.println("Insira a altura do Cilíndro: ");
+                                        raioCone = Double.parseDouble(ler.nextLine());
 
-                                if (alturaCone > 0 && raioCone > 0) {
-                                    Cone cone = new Cone(alturaCone, raioCone);
-                                    System.out.println(cone.retornaResumoDoCone(valor));
-                                } else {
-                                    System.out.println("Insira um número maior que 0");
+                                        if (alturaCone > 0 && raioCone > 0) {
+                                            Cone cone = new Cone(alturaCone, raioCone);
+                                            System.out.println(cone.retornaResumoDoCone(valor));
+                                        } else {
+                                            System.out.println("Insira um número maior que 0");
+                                            continue;
+                                        }
+                                        break;
+                                    } catch (Exception e) {
+                                        System.out.println("Opção inválida, tente novamente.");
+                                    }
                                 }
-                                break;
-
-                            default:
+                                continue;
+                            }
+                            default -> {
                                 System.out.println("Opção inválida, tente novamente.");
+                                continue;
+                            }
                         }
+
                     case 0:
-                        System.out.println("Tchau");
+                        System.out.println("Certo, até a próxima");
                         return;
 
                     default:
-                        System.out.println("Opção invál.");
+                        System.out.println("Opção inválida");
                 }
             } catch (Exception e) {
                 System.out.println("Opção inválida, tente novamente!");
             }
         }
-
-
     }
 }
